@@ -1,0 +1,78 @@
+﻿<ui:FluentWindow x:Class="DiscBuilder.IsoBuilder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiscBuilder"
+        mc:Ignorable="d"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        WindowStartupLocation="CenterOwner"
+        ExtendsContentIntoTitleBar="True"
+        WindowBackdropType="Mica"
+        WindowCornerPreference="Round"
+        Title="BuilderUI" MaxHeight="200" MinHeight="200" MaxWidth="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ui:TitleBar
+            Grid.Row="0"
+            Title="DiscBuilder"
+            ShowMinimize="False"
+            ShowMaximize="False"/>
+
+        <StackPanel Grid.Row="1" Margin="16,0,16,0" VerticalAlignment="Top">
+            <ui:CardControl Icon="{ui:SymbolIcon Cd16}">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                            <TextBlock
+                                FontSize="13"
+                                FontWeight="Medium"
+                                Text="Image Label" />
+                            <TextBlock
+                                FontSize="12"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Label Name of the Image" />
+                        </StackPanel>
+                        <ui:TextBox x:Name="LabelTextBox" Grid.Column="1" Width="255" PlaceholderText="My Image" Margin="0,0,8,0" TextChanged="LabelTextBox_OnTextChanged"/>
+                    </Grid>
+                </ui:CardControl.Header>
+            </ui:CardControl>
+        </StackPanel>
+
+        <StatusBar
+            Grid.Row="2"
+            x:Name="RootStatusBar"
+            VerticalAlignment="Bottom"
+            MinHeight="0"
+            Margin="0"
+            Padding="8,2">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+
+            <StatusBarItem Grid.Column="0" Margin="0,0,4,0">
+                <Button Content="Cancel" IsCancel="True"/>
+            </StatusBarItem>
+            <StatusBarItem Grid.Column="2" Margin="0,0,4,0">
+                <Button Content="Build" Click="BuildBtn_Click"/>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</ui:FluentWindow>

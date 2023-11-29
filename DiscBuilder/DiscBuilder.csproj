@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DiscUtils.Containers" Version="0.16.13" />
+		<PackageReference Include="WPF-UI" Version="3.0.0-preview.11" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Page Include="App.xaml" />
+	</ItemGroup>
+
+</Project>
